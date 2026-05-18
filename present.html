@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>お盆 2026 バリ島 ─ 旅のプレゼン</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌴</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1a2a3a;
+    --accent: #c9a96e;
+    --accent-soft: rgba(201,169,110,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 28px;
+  }
+
+  /* ===== COVER ===== */
+  .cover .overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.85) 100%);
+  }
+  .cover .content {
+    text-align: center;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .cover-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .cover-sub {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.7;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .cover-dates {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.4;
+  }
+  .scroll-hint {
+    margin-top: 32px;
+    font-size: 12px;
+    opacity: 0.3;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ===== STORY SECTION ===== */
+  .story .overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.92) 100%);
+  }
+  .story .content {
+    padding-top: 50vh;
+  }
+  .story-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .story h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .story-text {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 2;
+    opacity: 0.75;
+  }
+
+  /* ===== HOTEL SECTION ===== */
+  .hotel-sec .overlay {
+    background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.95) 100%);
+  }
+  .hotel-sec .content {
+    padding-top: 45vh;
+  }
+  .hotel-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .hotel-tag.sea { background: rgba(26,107,138,0.35); color: #7cc5de; }
+  .hotel-tag.mtn { background: rgba(58,90,72,0.35); color: #8cc4a0; }
+  .hotel-sec h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .hotel-loc {
+    font-size: 14px;
+    opacity: 0.5;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .hotel-desc {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 2;
+    opacity: 0.75;
+    margin-bottom: 20px;
+  }
+  .hotel-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .feat {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    font-weight: 400;
+  }
+
+  /* ===== GOLF SECTION ===== */
+  .golf-sec .overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.95) 100%);
+  }
+  .golf-sec .content {
+    padding-top: 35vh;
+  }
+  .golf-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .golf-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .golf-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .golf-card p {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    opacity: 0.6;
+  }
+  .golf-card-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .golf-card-tag.sea { background: rgba(26,107,138,0.3); color: #7cc5de; }
+  .golf-card-tag.mtn { background: rgba(58,90,72,0.3); color: #8cc4a0; }
+
+  /* ===== DAY SECTION ===== */
+  .day-sec .overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.95) 100%);
+  }
+  .day-sec .content {
+    padding-top: 25vh;
+  }
+  .day-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .day-sec h2 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  .tl {
+    display: flex;
+    gap: 14px;
+    padding: 8px 0;
+    border-left: 1px solid rgba(255,255,255,0.12);
+    margin-left: 6px;
+    padding-left: 18px;
+    position: relative;
+  }
+  .tl::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 14px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+  }
+  .tl.hl::before {
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-soft);
+  }
+  .tl-time {
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 44px;
+    opacity: 0.5;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .tl-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .tl-desc {
+    font-size: 12px;
+    opacity: 0.45;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-top: 2px;
+  }
+
+  /* ===== HIGHLIGHT SECTION ===== */
+  .highlight-sec {
+    background: #0d1117;
+  }
+  .highlight-sec .content {
+    text-align: center;
+    padding: 60px 28px;
+  }
+  .hl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .hl-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 20px 12px;
+    text-align: center;
+  }
+  .hl-card .icon { font-size: 28px; margin-bottom: 8px; }
+  .hl-card .label { font-size: 11px; opacity: 0.4; margin-bottom: 4px; letter-spacing: 1px; }
+  .hl-card .value { font-size: 14px; font-weight: 700; line-height: 1.4; }
+
+  /* ===== END SECTION ===== */
+  .end-sec .overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%);
+  }
+  .end-sec .content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .end-sec h2 {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .end-sec p {
+    font-size: 15px;
+    font-weight: 300;
+    opacity: 0.6;
+    line-height: 1.8;
+  }
+
+  /* ===== NAV DOTS ===== */
+  .dots {
+    position: fixed;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .dot.active {
+    background: var(--accent);
+    height: 18px;
+    border-radius: 3px;
+  }
+
+  /* ===== DIVIDER ===== */
+  .gold-line {
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    margin: 16px 0;
+    opacity: 0.6;
+  }
+  .gold-line.center { margin: 16px auto; }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (min-width: 768px) {
+    .cover h1 { font-size: 64px; }
+    .story h2, .hotel-sec h2 { font-size: 38px; }
+    .content { max-width: 600px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<div class="dots" id="dots"></div>
+
+<!-- 1. COVER -->
+<section class="cover" id="s0">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1573790387438-4da905039392?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="cover-label">OBON 2026</div>
+    <h1>バリ島、<br>ふたたび。</h1>
+    <div class="cover-sub">
+      海のリゾートから、渓谷のヴィラへ。<br>
+      4泊5日、2つのホテルを巡る旅。
+    </div>
+    <div class="cover-dates">8.11 MON ─ 8.17 SUN</div>
+    <div class="scroll-hint">↓ SCROLL</div>
+  </div>
+</section>
+
+<!-- 2. CONCEPT -->
+<section class="story" id="s1">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="story-label">CONCEPT</div>
+    <h2>海と山。<br>2つのバリを、<br>ひとつの旅で。</h2>
+    <div class="gold-line"></div>
+    <div class="story-text">
+      前半はヌサドゥアの崖の上。<br>
+      インド洋に沈む夕陽を眺め、<br>
+      崖のゴルフコースを攻略する。<br><br>
+      後半はウブドの渓谷へ。<br>
+      霧のカルデラでプレーし、<br>
+      聖なる水の寺院を訪れる。
+    </div>
+  </div>
+</section>
+
+<!-- 3. HOTEL 1 -->
+<section class="hotel-sec" id="s2">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="hotel-tag sea">HOTEL 1 ─ SEA</div>
+    <h2>The Apurva<br>Kempinski Bali</h2>
+    <div class="hotel-loc">ヌサドゥア / 8月12日〜14日（2泊）</div>
+    <div class="hotel-desc">
+      崖の上に建つバリ最大級のラグジュアリーリゾート。<br>
+      Cliff Private Pool Villaから、インド洋のサンセットを独り占め。
+    </div>
+    <div class="hotel-features">
+      <span class="feat">Cliff Private Pool Villa</span>
+      <span class="feat">インド洋パノラマ</span>
+      <span class="feat">水族館レストラン</span>
+      <span class="feat">空港から25分</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4. HOTEL 2 -->
+<section class="hotel-sec" id="s3">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="hotel-tag mtn">HOTEL 2 ─ MOUNTAIN</div>
+    <h2>Four Seasons<br>Bali at Sayan</h2>
+    <div class="hotel-loc">ウブド・サヤン / 8月14日〜16日（2泊）</div>
+    <div class="hotel-desc">
+      屋上の蓮池から渓谷へ降りていく、唯一無二のアプローチ。<br>
+      アユン川渓谷に抱かれたValley Villaで、自然に溶け込む2泊。
+    </div>
+    <div class="hotel-features">
+      <span class="feat">Valley Villa</span>
+      <span class="feat">アユン川渓谷ビュー</span>
+      <span class="feat">Sacred River Spa</span>
+      <span class="feat">屋上ロータスポンド</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5. GOLF -->
+<section class="golf-sec" id="s4">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="story-label">GOLF</div>
+    <h2 style="font-size:28px;">海と山、<br>2つのコース。</h2>
+    <div class="gold-line"></div>
+    <div class="golf-cards">
+      <div class="golf-card">
+        <div class="golf-card-tag sea">ROUND 1 ─ DAY 3</div>
+        <h3>New Kuta Golf</h3>
+        <p>崖の上からインド洋に打ち下ろす。ドラマチックな18ホール。</p>
+      </div>
+      <div class="golf-card">
+        <div class="golf-card-tag mtn">ROUND 2 ─ DAY 5</div>
+        <h3>Handara Golf & Resort</h3>
+        <p>標高1,142m。霧のカルデラ。気温14〜20℃。天国の門もここ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DAY 2 -->
+<section class="day-sec" id="s5">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="day-tag">DAY 2 ─ 8/12 TUE</div>
+    <h2>バリ到着。<br>崖の上のリゾートへ。</h2>
+    <div class="tl hl"><div class="tl-time">07:05</div><div><div class="tl-title">バリ島到着 🌺</div></div></div>
+    <div class="tl"><div class="tl-time">08:00</div><div><div class="tl-title">Kempinskiへ（約25分）</div></div></div>
+    <div class="tl hl"><div class="tl-time">09:00</div><div><div class="tl-title">チェックイン ─ Cliff Villa</div><div class="tl-desc">崖の上のプールからインド洋を一望</div></div></div>
+    <div class="tl"><div class="tl-time">午後</div><div><div class="tl-title">プール＆ビーチ</div></div></div>
+    <div class="tl"><div class="tl-time">15:30</div><div><div class="tl-title">Apurva Spa</div><div class="tl-desc">ハーブ療法でリフレッシュ</div></div></div>
+    <div class="tl hl"><div class="tl-time">19:30</div><div><div class="tl-title">🍽 Kayuputi ディナー</div><div class="tl-desc">海上のファインダイニング</div></div></div>
+  </div>
+</section>
+
+<!-- 7. DAY 3 -->
+<section class="day-sec" id="s6">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="day-tag">DAY 3 ─ 8/13 WED</div>
+    <h2>海のゴルフ。<br>タナロットの夕陽。</h2>
+    <div class="tl hl"><div class="tl-time">08:00</div><div><div class="tl-title">⛳ New Kuta Golf</div><div class="tl-desc">崖からインド洋に向かって打ち下ろす</div></div></div>
+    <div class="tl"><div class="tl-time">13:30</div><div><div class="tl-title">Kempinski帰着 → プール</div></div></div>
+    <div class="tl hl"><div class="tl-time">17:30</div><div><div class="tl-title">🛕 タナロット寺院サンセット</div><div class="tl-desc">海に浮かぶ寺院のシルエット</div></div></div>
+    <div class="tl hl"><div class="tl-time">19:00</div><div><div class="tl-title">🍽 Sardine ディナー</div><div class="tl-desc">田んぼビューのモダンシーフード</div></div></div>
+  </div>
+</section>
+
+<!-- 8. DAY 4 -->
+<section class="day-sec" id="s7">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="day-tag">DAY 4 ─ 8/14 THU</div>
+    <h2>聖水の寺院。<br>海から山へ。</h2>
+    <div class="tl"><div class="tl-time">09:00</div><div><div class="tl-title">Kempinski チェックアウト</div></div></div>
+    <div class="tl hl"><div class="tl-time">11:00</div><div><div class="tl-title">🛕 ティルタ・エンプル寺院</div><div class="tl-desc">聖なる湧き水で沐浴体験</div></div></div>
+    <div class="tl hl"><div class="tl-time">13:00</div><div><div class="tl-title">Four Seasons Sayan チェックイン</div><div class="tl-desc">蓮池を渡り、渓谷へ降りていく</div></div></div>
+    <div class="tl"><div class="tl-time">16:00</div><div><div class="tl-title">Sacred River Spa</div></div></div>
+    <div class="tl hl"><div class="tl-time">19:30</div><div><div class="tl-title">🍽 Riverside Cafe</div><div class="tl-desc">アユン川ほとりのディナー</div></div></div>
+  </div>
+</section>
+
+<!-- 9. DAY 5 -->
+<section class="day-sec" id="s8">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="day-tag">DAY 5 ─ 8/15 FRI</div>
+    <h2>山のゴルフ。<br>天国の門。</h2>
+    <div class="tl hl"><div class="tl-time">09:00</div><div><div class="tl-title">⛳ Handara Golf</div><div class="tl-desc">標高1,142m 霧のカルデラ</div></div></div>
+    <div class="tl hl"><div class="tl-time">14:30</div><div><div class="tl-title">⛩ 天国の門で記念撮影</div><div class="tl-desc">山を背景にした壮大な石門</div></div></div>
+    <div class="tl"><div class="tl-time">15:00</div><div><div class="tl-title">🛕 ウルン・ダヌ・ブラタン寺院</div><div class="tl-desc">ブラタン湖に浮かぶ寺院</div></div></div>
+    <div class="tl hl"><div class="tl-time">19:30</div><div><div class="tl-title">🍽 Locavore NXT</div><div class="tl-desc">Asia's 50 Best。この旅の目玉</div></div></div>
+  </div>
+</section>
+
+<!-- 10. DAY 6 -->
+<section class="day-sec" id="s9">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1573790387438-4da905039392?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content fade-up">
+    <div class="day-tag">DAY 6 ─ 8/16 SAT</div>
+    <h2>最後のバリ。<br>深夜便で帰国。</h2>
+    <div class="tl"><div class="tl-time">07:00</div><div><div class="tl-title">渓谷テラスで最後の朝食</div></div></div>
+    <div class="tl"><div class="tl-time">11:00</div><div><div class="tl-title">Sayan チェックアウト</div></div></div>
+    <div class="tl"><div class="tl-time">13:00</div><div><div class="tl-title">🛍 スミニャックでショッピング</div></div></div>
+    <div class="tl"><div class="tl-time">17:00</div><div><div class="tl-title">🍽 最後のディナー</div></div></div>
+    <div class="tl hl"><div class="tl-time">00:20</div><div><div class="tl-title">✈ ガルーダ直行便で成田へ</div><div class="tl-desc">08:50 成田着</div></div></div>
+  </div>
+</section>
+
+<!-- 11. HIGHLIGHTS -->
+<section class="highlight-sec" id="s10">
+  <div class="content fade-up">
+    <div class="story-label">HIGHLIGHTS</div>
+    <h2 style="font-size:26px; font-weight:700; margin-bottom:4px;">この旅の全体像</h2>
+    <div class="gold-line center"></div>
+    <div class="hl-grid">
+      <div class="hl-card">
+        <div class="icon">🏨</div>
+        <div class="label">HOTELS</div>
+        <div class="value">Kempinski<br>+ Four Seasons</div>
+      </div>
+      <div class="hl-card">
+        <div class="icon">⛳</div>
+        <div class="label">GOLF</div>
+        <div class="value">New Kuta<br>+ Handara</div>
+      </div>
+      <div class="hl-card">
+        <div class="icon">🛕</div>
+        <div class="label">TEMPLES</div>
+        <div class="value">タナロット<br>ティルタエンプル<br>ブラタン</div>
+      </div>
+      <div class="hl-card">
+        <div class="icon">🍽</div>
+        <div class="label">DINNER</div>
+        <div class="value">Kayuputi<br>Sardine<br>Locavore NXT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. END -->
+<section class="end-sec cover" id="s11">
+  <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1573790387438-4da905039392?auto=format&fit=crop&w=1200&q=80');"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="cover-label">OBON 2026</div>
+    <h2>最高のお盆に<br>しよう。</h2>
+    <div class="gold-line center"></div>
+    <p>
+      The Apurva Kempinski Bali<br>
+      + Four Seasons Bali at Sayan<br><br>
+      2026年8月12日〜16日 ─ 4泊5日
+    </p>
+  </div>
+</section>
+
+<script>
+  const secs = document.querySelectorAll('section');
+  const dotsEl = document.getElementById('dots');
+
+  secs.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => secs[i].scrollIntoView({ behavior: 'smooth' });
+    dotsEl.appendChild(d);
+  });
+
+  const dots = dotsEl.querySelectorAll('.dot');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = [...secs].indexOf(e.target);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        e.target.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+      }
+    });
+  }, { threshold: 0.4 });
+
+  secs.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
